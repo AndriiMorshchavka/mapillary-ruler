@@ -1,6 +1,7 @@
 This explanation describes how to annotate new images to train a net for building height estimation from Mapillary API (Directory annotation_images) or how to use the trained nets to estimate building heights (script_prog).
 
 Process of images Annotation (annotation_images):
+
 0. Create in annotation_images the following empty folders in annotation_images:
 	
  	/ 
