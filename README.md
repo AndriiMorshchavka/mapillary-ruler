@@ -8,7 +8,8 @@ This guide explains how to annotate new images for training a network to estimat
 
    Create the following folders in `annotation_images`:
 	
- 	annotation_images/
+
+	annotation_images/
 
 		├── new_images/
 
