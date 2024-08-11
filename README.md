@@ -56,7 +56,7 @@ This guide explains how to annotate new images for training a network to estimat
   - `5_lines_data.xlsx` to `lines`
 - You can then filter the images by user as I did with the images of stefanhrt or filter them by the outlying values of building height or distance.
 
-## Using or training neural networks (`script_prog`)
+## Neural Networks Use or Training (`script_prog`)
 - Train neural network from the required worksheet of `matlab_table.xlsx` using sgript_neural.m. You can adjust the worksheet used, data range, columns used as input, data split (training-validation-testing), and the way to handle the optimization algorthms and hidden layers number.
 - Use `matlab_main_script.m` to use neural network. In the current code, you can compare two neural networks. 
 - The MATLAB program accesses compiled Python program in `__py_cache__/python_script.cpython-311.pyc`. You can change the code in python_script.py and then recompile using `compile.py`.
