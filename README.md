@@ -9,14 +9,19 @@ This guide explains how to annotate new images for training a network to estimat
    Create the following folders in `annotation_images`:
 	
  	annotation_images/
+
 		├── new_images/
+
 		└── processed_images/
+
     			├── .original/
+   
     			├── .ai/
+   
     			└── .svg/
 
 
-2. **Image Search and Data Collection**
+3. **Image Search and Data Collection**
 
 - Run `1_image_data_request.py` to search for images and save them to `new_images/` and their data to `1_new_images.xlsx`.
 - Assign project IDs in `1_new_images.xlsx`.
