@@ -2,7 +2,7 @@ clear all
 projectPath =  fileparts(mfilename('fullpath'));
 
 % % Define your Python script path
-pythonScript = fullfile(projectPath, '__py_cache__\python_script.cpython-311.pyc');
+pythonScript = fullfile(projectPath, '__pycache__\python_script.cpython-311.pyc');
 
 % Load the saved neural network
 netFileAll = fullfile(projectPath, 'nets_report\net_test_report.mat');
