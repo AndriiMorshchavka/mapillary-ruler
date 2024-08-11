@@ -10,7 +10,6 @@ This guide explains how to annotate new images for training a network to estimat
 	
 
 	annotation_images/
-
 		├── new_images/
 
 		└── processed_images/
