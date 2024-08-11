@@ -4,50 +4,55 @@ This guide explains how to annotate new images for training a network to estimat
 
 ## Image Annotation (`annotation_images`)
 
-1. **Directory Setup**
+0. **Directory Setup**
 
    Create the following folders in `annotation_images`:
 	
-annotation_images/
+```annotation_images/
 ├── new_images/
 └── processed_images/
     ├── .original/
     ├── .ai/
     └── .svg/
+```
 
+1. **Image Search and Data Collection**
 
+- Search for images fitting your criteria and save them and their data using 1_image_data_request.py.
+- The images are saved to new_images folder, data - to 1_new_images.xlsx.
+- Assign project IDs to the images in the first column that correspond to your needs.
 
-3. **Image Search and Data Collection**
+2. **Data Preparation**
 
-- Run `1_image_data_request.py` to search for images and save them to `new_images/` and their data to `1_new_images.xlsx`.
-- Assign project IDs in `1_new_images.xlsx`.
+- Move data from 1_new_images.xlsx to 2_all_images.xlsx and save the data with camera position coordinates to GEOJSON using script 2_excel_to_geojson.py.
+- The GEOJSON reprojected into EPSG:3857 is saved into 2_all_images_3857.geojson.
 
-3. **Data Preparation**
+3. **Image Processing**
 
-- Move data from `1_new_images.xlsx` to `2_all_images.xlsx`.
-- Use `2_excel_to_geojson.py` to convert data to GeoJSON, saved as `2_all_images_3857.geojson`.
+- Cut each new image from new_images to proccessed_images/original and open them with Adobe Illustrator or any similar vector image processing tool that allows creating importing jpg, adding circles, and exporting to SVG.
+- In Adobe Illustrator:
+	- Open the original JPG and adjust the artboard.
+	- Add circles and name them correctly. In my work, the first three numbers stood for the project ID of the image, the next two symbols - for the position of points pair in the image from left to right, and the last one was either 1 for the top point or 2 for bottom point - e.g., 048062.
+	- Then, geolocate the projections of points pair on the ground in QGIS. In the project 3_annotation_qgis.qgz, the 2_all_images_3857.geojson is open, as well as 3_ref_points_3857.geojson with points from my project geolocated. Add your points to the 3_ref_points_3857.geojson and name them correctly - e.g., the first five numbers of points names that correspond to the points pair.
+	- Save points coordinates from .svg to an Excel file using 3_coordinates_svg_to_excel.py. The coordinates are saved to the worksheet new_coordinates in 3_ref_points.xlsx.
+	- Assign to each point pair in the worksheet new_coordinates in 3_ref_points.xlsx the Building height for ground truth data.
+ - Examples of images in original format and as SVG can be found in branch examples-building-height.
 
-4. **Image Processing**
+4. **Lines Creation**
 
-- Move images from `new_images/` to `processed_images/.original`.
-- Open each image in Adobe Illustrator (or similar) to add circles and export them as SVGs.
-- Name circles according to project ID, point pair position, and point type (e.g., `048062`).
+- Create lines in your QGIS project using the tool "Join by Lines (Hub Lines)" from the processing toolbox. Refer to 4_how_to_create_lines.png. 
 
-5. **Geolocation**
+5. **Lines Proccessing**
 
-- Geolocate point pairs in QGIS using `3_annotation_qgis.qgz` and save them to `3_ref_points_3857.geojson`.
-- Extract coordinates from SVGs with `3_coordinates_svg_to_excel.py` and save to `3_ref_points.xlsx`.
+- Calculate the length and angles of the lines from the lines layer by copying fields from the layer 5_lines_attributes_example in the QGIS project 3_annotation_qgis.qgz or create new virtual fields as in 5_how_to_calculate_lines.png.
+- Export the layer as Excel to 5_lines_data.xlsx.
 
-6. **Line Creation**
+6. **Data Compilation**
 
-- Use QGIS's "Join by Lines" tool to create lines as shown in `4_how_to_create_lines.png`.
-- Calculate line lengths and angles, referencing `5_lines_attributes_example` in QGIS, and export to `5_lines_data.xlsx`.
-
-7. **Data Compilation**
-
+- Prepare data for MATLAB Neural Network in `matlab_input_all` and filter images as needed.
 - Merge all data into `matlab_table.xlsx` in the `script_prog` folder:
   - `2_all_images.xlsx` to `image_data_all`
   - `3_ref_points.xlsx` to `ref_coordinates`
   - `5_lines_data.xlsx` to `lines`
-- Prepare data for MATLAB Neural Network in `matlab_input_all` and filter images as needed.
+- You can then filter the images by user as I did with the images of stefanhrt or filter them by the outlying values of building height or distance.
 
