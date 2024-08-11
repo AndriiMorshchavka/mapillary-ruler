@@ -1,6 +1,13 @@
 This explanation describes how to annotate new images to train a net for building height estimation from Mapillary API (Directory annotation_images) or how to use the trained nets to estimate building heights (script_prog).
 
 Process of images Annotation (annotation_images):
+0. Create in annotation_images the following empty folders in annotation_images:
+	/
+	├── new_images/
+	├── processed_images/
+    		├── .original/
+    		├── .ai/
+    		└── .svg/
 1. Search for images fitting your criteria and save them and their data using 1_image_data_request.py. The images are saved to new_images folder, data - to 1_new_images.xlsx. Assign project IDs to the images in the first column that correspond to your Needs.
 2. Cut data from 1_new_images.xlsx to 2_all_images.xlsx and save the data with camera Position coordinates to geojson using script 2_excel_to_geojson.py. The geojson reprojected into EPSG:3857 is saved into 2_all_images_3857.geojson.
 3. Cut each new image from new_images to proccessed_images/original and open them with Adobe Illustrator or any similar vector image processing tool that allows creating importing jpg, adding circles, and exporting to SVG. Examples of images in original format and as SVG can be found in branch examples-building-height. For Adobe Illustrator:
