@@ -4,12 +4,9 @@ Process of images Annotation (annotation_images):
 
 0. Create in annotation_images the following empty folders in annotation_images:
 	
- 	/ 
-	
+ 	/ 	
  	├── new_images/
-
 	├── processed_images/
-
     		├── .original/
       
     		├── .ai/
