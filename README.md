@@ -3,10 +3,15 @@ This explanation describes how to annotate new images to train a net for buildin
 Process of images Annotation (annotation_images):
 0. Create in annotation_images the following empty folders in annotation_images:
 	/
+ 
 	├── new_images/
+ 
 	├── processed_images/
+ 
     		├── .original/
+      
     		├── .ai/
+      
     		└── .svg/
 1. Search for images fitting your criteria and save them and their data using 1_image_data_request.py. The images are saved to new_images folder, data - to 1_new_images.xlsx. Assign project IDs to the images in the first column that correspond to your Needs.
 2. Cut data from 1_new_images.xlsx to 2_all_images.xlsx and save the data with camera Position coordinates to geojson using script 2_excel_to_geojson.py. The geojson reprojected into EPSG:3857 is saved into 2_all_images_3857.geojson.
