@@ -7,12 +7,13 @@ This guide explains how to annotate new images for training a network to estimat
 1. **Directory Setup**
 
    Create the following folders in `annotation_images`:
-annotation_images/
-├── new_images/
-├── processed_images/
-	├── .original/
-	├── .ai/
-	└── .svg/
+	
+ 	annotation_images/
+		├── new_images/
+		└── processed_images/
+    			├── .original/
+    			├── .ai/
+    			└── .svg/
 
 
 2. **Image Search and Data Collection**
