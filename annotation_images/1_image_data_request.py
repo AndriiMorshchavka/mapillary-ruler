@@ -13,7 +13,7 @@ images_path = os.path.join (directory, r"..//new_images")
 base_url = "https://graph.mapillary.com"
 
 # Specify request parameters
-access_token = "MLY|7001510073286829|ea90511ea191e05c31eddbbf6247bf93"
+access_token = "" # Paste your access token here
 fields = "atomic_scale,thumb_original_url,computed_geometry,computed_compass_angle,computed_rotation,camera_parameters,camera_type,height,width,exif_orientation,computed_altitude,creator,make,model"
 print ("Type the pKey")
 pKey = input()
