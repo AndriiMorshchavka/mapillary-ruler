@@ -4,7 +4,7 @@ This guide explains how to annotate new images for training a network to estimat
 
 ## Image Annotation (`annotation_images`)
 
-0. **Directory Setup**
+0. **Directory setup and access token integration**
 
    Create the following folders in `annotation_images`:
 	
@@ -15,6 +15,10 @@ This guide explains how to annotate new images for training a network to estimat
     ├── .ai/
     └── .svg/
 ```
+
+And integrate your Mapillary API access token into the code:
+annotation_images/1_image_data_request.py Line 16
+script_prog/python_script.py Line 155
 
 1. **Image Search and Data Collection**
 
