@@ -152,7 +152,7 @@ def collect_input (pKey):
     base_url = "https://graph.mapillary.com"
 
     # Specify request parameters
-    access_token = "MLY|7001510073286829|ea90511ea191e05c31eddbbf6247bf93"
+    access_token = "" # Paste your access token here
     fields = "exif_orientation,thumb_original_url,computed_geometry,computed_compass_angle,computed_rotation,camera_parameters,camera_type,height,width,exif_orientation, computed_altitude"
 
     response = requests.get(f"{base_url}/{pKey}?access_token={access_token}&fields={fields}")
