@@ -17,8 +17,9 @@ This guide explains how to annotate new images for training a network to estimat
 ```
 
 And integrate your Mapillary API access token into the code:
-annotation_images/1_image_data_request.py Line 16
-script_prog/python_script.py Line 155
+
+- annotation_images/1_image_data_request.py Line 16
+- script_prog/python_script.py Line 155
 
 1. **Image Search and Data Collection**
 
